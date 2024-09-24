@@ -78,3 +78,37 @@ class _NumberGridState extends State<NumberGrid> {
       ),
     );
   }
+
+  bool _shouldHighlight(int number, String rule) {
+    switch (rule) {
+      case 'Odd Numbers':
+        return number.isOdd;
+      case 'Even Numbers':
+        return number.isEven;
+      case 'Prime Numbers':
+        return _isPrime(number);
+      case 'Fibonacci Numbers':
+        return _isFibonacci(number);
+      default:
+        return false;
+    }
+  }
+
+  bool _isPrime(int number) {
+    if (number < 2) return false;
+    for (int i = 2; i <= sqrt(number).toInt(); i++) {
+      if (number % i == 0) return false;
+    }
+    return true;
+  }
+
+  bool _isFibonacci(int number) {
+    int a = 0, b = 1;
+    while (b < number) {
+      int temp = a + b;
+      a = b;
+      b = temp;
+    }
+    return b == number || number == 0;
+  }
+} 
