@@ -9,6 +9,7 @@ class FlutterTaskApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: NumberGrid(),
     );
   }
@@ -111,4 +112,4 @@ class _NumberGridState extends State<NumberGrid> {
     }
     return b == number || number == 0;
   }
-} 
+}
